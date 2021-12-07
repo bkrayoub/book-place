@@ -53,7 +53,7 @@
         
         function clic(){
         
-            if (book.value == "" || book.value.length>30){
+            if (book.value == "" || book.value.length>30 || !isNaN(book.value)){
                 bknm.innerHTML =("✘")
                 bknm.style.color="red"
             }
