@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="test">
+        <form id="form">
+            <label for="">book name<input type="text" placeholder="book name" id="book"></label>
+            <label for="">book owner<input type="text" placeholder="name" id="owner"></label>
+            <label for="">number tel<input type="number" placeholder="name" id="number"></label>
+            <label for="">date<input type="date" placeholder="date" id="date"></label>
+            <div>
+                <h3>langue</h3>
+                <select name="" id="">
+                    <option value="">select</option>
+                    <option value="">Ar</option>
+                    <option value="">Fr</option>
+                    <option value="">en</option>
+    
+                </select>
+            </div>
+            <button onclick="clic()" type="button">submit</button>
+            
+        </form>
+        <div id="lest">
+           <p id="bknm">...</p>
+           <p id="onr">...</p>
+           <p id="nbr">...</p>
+           <p id="dt">...</p>
+        </div>
+
+    </div>
+    <script>
+    //book name
+        var bk = document.getElementById('book');
+        var bknm = document.getElementById('bknm');
+    //owner name
+        var owner = document.getElementById('owner');
+        var onr = document.getElementById('onr');
+    //Phone number
+        var number = document.getElementById('number');
+        var nbr = document.getElementById('nbr');
+    //date
+        var date = document.getElementById('date');
+        var dt = document.getElementById('dt');
+        var cn = 10 ;
+
+        
+        function clic(){
+        
+            if (book.value == "" || book.value.length>30){
+                bknm.innerHTML =("✘")
+                bknm.style.color="red"
+            }
+            else {
+                bknm.innerHTML =("✔")
+                bknm.style.color="green"
+            }
+
+            if (owner.value == ""){
+                onr.innerHTML =("✘")
+                onr.style.color="red"
+            }
+
+            else {
+                onr.innerHTML =("✔")
+                onr.style.color="green"
+            }
+
+            if (number.value == ""){
+                nbr.innerHTML =("✘")
+                nbr.style.color="red"
+
+            }
+            else {
+                nbr.innerHTML =("✔")
+                nbr.style.color="green"
+            }
+
+            if (date.value == ""){
+                dt.innerHTML =("✘")
+                dt.style.color="red"
+            }
+            else {
+                dt.innerHTML =("✔")
+                dt.style.color="green"
+            }
+
+
+        }
+
+      
+
+    </script>
+</body>
