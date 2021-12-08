@@ -18,23 +18,34 @@ main {
 }
 
 form {
-    background-color: darkcyan;
+    width: 300px;
+    background-color: rgb(34, 37, 37);
     padding: 20px;
 }
 form div {
     margin-bottom: 10px;
+    display: flex;
+}
+form div h4 {
+    color: white;
+    width: 100px;
+}
+form div p {
+    margin: 0px 5px;
 }
 #radio {
     display: flex;
 }
 #radio h4 {
     font-size: 14px;
+    width: unset;
 }
 #select {
     margin-bottom: 10px;
 }
 #table {
-    background-color: darkgrey;
+
+    background-color: rgb(212, 212, 212);
     margin-left: 10px;
 }
 table, th, td {
@@ -42,4 +53,16 @@ table, th, td {
 }
 #titles {
     font-size: 15px;
+}
+#btn {
+    background-color: cadetblue;
+    border: 2px solid rgb(58, 94, 95);
+    height: 40px;
+    width: 90px;
+    font-weight: bold;
+    margin-left: 40%;
+    color: white;
+}
+Date-input {
+    
 }

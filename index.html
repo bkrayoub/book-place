@@ -11,41 +11,53 @@
     <nav>book warehouse</nav>
     <main>
         <form>
+            <!-- Title -->
             <div id="">
                 <h4>Title</h4>
                 <input type="text" placeholder="" id="Title-input">
+                <p id="Title-check"></p>
             </div>
+            <!-- Writer -->
             <div id="">
                 <h4>Writer</h4>
-                <input type="text" placeholder="" id="Writer-input">
+                    <input type="text" placeholder="" id="Writer-input">
+                <p id="Writer-check"></p>
             </div>
+            <!-- Price -->
             <div id="">
                 <h4>Price</h4>
-                <input type="text" placeholder="" id="Price-input">
+                    <input type="text" placeholder="" id="Price-input">
+                <p id="Price-check"></p>
             </div>
+            <!-- Date -->
             <div id="">
                 <h4>Date</h4>
-                <input type="date" placeholder="" id="Date-input">
+                    <input type="date" placeholder="" id="Date-input" >
+                <p id="Date-check"></p>
             </div>
+            <!-- Language -->
             <div id="">
                 <h4>Language</h4>
-                <select id="Select">
-                    <option value="">Choose a language</option>
+                <select id="Select" style="padding-right: 7px; height: 30px;">
+                    <option disabled selected hidden >~ Choose a language ~</option>
                     <option value="">English</option>
                     <option value="">French</option>
                     <option value="">Arabic</option>
                 </select>
             </div>
-            Type:
+
             <div id="radio">
+                <p style="color: white;">Type:</p>
+                <div>
                 <h4>Novel</h4>
                 <input type="radio">
                 <h4>Essay</h4>
                 <input type="radio">
                 <h4>Comics</h4>
                 <input type="radio">
+                </div>
             </div>
-            <input type="button" value="Submit" onclick="clic()">
+            <input type="button" value="Submit" onclick="clic()" id="btn">
         </form>
     <div id="table">
         <table>
@@ -71,47 +83,47 @@
     <script>
         //book name
             var title = document.getElementById('Title-input');
-            var ttl = document.getElementById('bknm');
+            var ttl = document.getElementById('Title-check');
         //Writer
             var writer = document.getElementById('Writer-input');
-            var wtr = document.getElementById('onr');
+            var wtr = document.getElementById('Writer-check');
         //Price
             var price = document.getElementById('Price-input');
-            var prc = document.getElementById('nbr');
+            var prc = document.getElementById('Price-check');
         //date
             var date = document.getElementById('Date-input');
-            var dt = document.getElementById('dt');
+            var dt = document.getElementById('Date-check');
         //
             
             function clic(){
             
-                if (book.value == "" || book.value.length>30 || !isNaN(book.value)){
-                    bknm.innerHTML =("✘")
-                    bknm.style.color="red"
+                if (title.value == "" || title.value.length>30 || !isNaN(title.value)){
+                    ttl.innerHTML =("✘")
+                    ttl.style.color="red"
                 }
                 else {
-                    bknm.innerHTML =("✔")
-                    bknm.style.color="green"
+                    ttl.innerHTML =("✔")
+                    ttl.style.color="green"
                 }
     
-                if (owner.value == ""){
-                    onr.innerHTML =("✘")
-                    onr.style.color="red"
+                if (writer.value == ""){
+                    wtr.innerHTML =("✘")
+                    wtr.style.color="red"
                 }
     
                 else {
-                    onr.innerHTML =("✔")
-                    onr.style.color="green"
+                    wtr.innerHTML =("✔")
+                    wtr.style.color="green"
                 }
     
-                if (number.value == "" || isNaN(number.value)){
-                    nbr.innerHTML =("✘")
-                    nbr.style.color="red"
+                if (price.value == "" || isNaN(number.value)){
+                    prc.innerHTML =("✘")
+                    prc.style.color="red"
     
                 }
                 else {
-                    nbr.innerHTML =("✔")
-                    nbr.style.color="green"
+                    prc.innerHTML =("✔")
+                    prc.style.color="green"
                 }
     
                 if (date.value == ""){
