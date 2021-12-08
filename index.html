@@ -29,13 +29,14 @@
             </div>
             <div id="">
                 <h4>Language</h4>
-                <select id="select">
+                <select id="Select">
                     <option value="">Choose a language</option>
                     <option value="">English</option>
                     <option value="">French</option>
                     <option value="">Arabic</option>
                 </select>
             </div>
+            Type:
             <div id="radio">
                 <h4>Novel</h4>
                 <input type="radio">
@@ -44,18 +45,89 @@
                 <h4>Comics</h4>
                 <input type="radio">
             </div>
-            <input type="button" value="Submit">
+            <input type="button" value="Submit" onclick="clic()">
         </form>
     <div id="table">
         <table>
-            <p id="title-output"></p>
-            <p id="writer-output"></p>
-            <p id="price-output"></p>
-            <p id="date-output"></p>
-            <p id="language-output"></p>
-            <p id="radio-output"></p>
+            <tr id="titles">
+                <th>Title</th>
+                <th>Writer</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Language</th>
+                <th>Type</th>
+            </tr>
+            
+
+                <!-- <label>Title<th id="title-output"></td></label>
+                <label>Writer<td id="writer-output"></td></label>
+                <label>Price<td id="price-output"></td></label>
+                <label>Date<td id="date-output"></td></label>
+                <label>Language<td id="language-output"></td></label>
+                <label>Type<td id="radio-output"></td></label> -->
         </table>
     </div>
     </main>
+    <script>
+        //book name
+            var title = document.getElementById('Title-input');
+            var ttl = document.getElementById('bknm');
+        //Writer
+            var writer = document.getElementById('Writer-input');
+            var wtr = document.getElementById('onr');
+        //Price
+            var price = document.getElementById('Price-input');
+            var prc = document.getElementById('nbr');
+        //date
+            var date = document.getElementById('Date-input');
+            var dt = document.getElementById('dt');
+        //
+            
+            function clic(){
+            
+                if (book.value == "" || book.value.length>30 || !isNaN(book.value)){
+                    bknm.innerHTML =("✘")
+                    bknm.style.color="red"
+                }
+                else {
+                    bknm.innerHTML =("✔")
+                    bknm.style.color="green"
+                }
+    
+                if (owner.value == ""){
+                    onr.innerHTML =("✘")
+                    onr.style.color="red"
+                }
+    
+                else {
+                    onr.innerHTML =("✔")
+                    onr.style.color="green"
+                }
+    
+                if (number.value == "" || isNaN(number.value)){
+                    nbr.innerHTML =("✘")
+                    nbr.style.color="red"
+    
+                }
+                else {
+                    nbr.innerHTML =("✔")
+                    nbr.style.color="green"
+                }
+    
+                if (date.value == ""){
+                    dt.innerHTML =("✘")
+                    dt.style.color="red"
+                }
+                else {
+                    dt.innerHTML =("✔")
+                    dt.style.color="green"
+                }
+    
+    
+            }
+    
+          
+    
+        </script>
 </body>
 </html>
