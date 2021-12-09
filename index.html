@@ -57,7 +57,7 @@
                 <h4>Comics</h4>
                 <input class="radio" type="radio">
                 </div>
-                <span id="rdo">fgf</span>
+                <span id="rdo"></span>
             </div>
             <input type="button" value="Submit" onclick="clic()" id="btn">
         </form>
@@ -109,10 +109,12 @@
 
 
             function clic(){
+                var if_ok = true
             
                 if (title.value == "" || title.value.length>30 || !isNaN(title.value)){
                     ttl.innerHTML =("✘")
                     ttl.style.color="red"
+                    if_ok = false
                 }
                 else {
                     ttl.innerHTML =("✔")
@@ -122,6 +124,7 @@
                 if (writer.value == ""){
                     wtr.innerHTML =("✘")
                     wtr.style.color="red"
+                    if_ok = false
                 }
     
                 else {
@@ -129,9 +132,10 @@
                     wtr.style.color="green"
                 }
     
-                if (price.value == "" || isNaN(number.value)){
+                if (price.value == "" || isNaN(price.value)){
                     prc.innerHTML =("✘")
                     prc.style.color="red"
+                    if_ok = false
     
                 }
                 else {
@@ -142,6 +146,7 @@
                 if (date.value == ""){
                     dt.innerHTML =("✘")
                     dt.style.color="red"
+                    if_ok = false
                 }
                 else {
                     dt.innerHTML =("✔")
@@ -151,6 +156,7 @@
                 if(!(radio[0].checked || radio[1].checked || radio[2].checked)){
                     rdo.innerHTML =("✘")
                     rdo.style.color="red"
+                    if_ok = false
                 }
                 else {
                     rdo.innerHTML =("✔")
@@ -160,13 +166,16 @@
                 if(select.selectedIndex== "") {
                     slc.innerHTML =("✘")
                     slc.style.color="red"
+                    if_ok = false
                 }
                 else {
                     slc.innerHTML =("✔")
                     slc.style.color="green" 
                 }
-                
-    
+            //Table
+                if (if_ok = true){
+
+                }
             }
     
           
