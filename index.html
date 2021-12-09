@@ -38,27 +38,34 @@
             <!-- Language -->
             <div id="">
                 <h4>Language</h4>
-                <select id="Select" style="padding-right: 7px; height: 30px;">
-                    <option disabled selected hidden >~ Choose a language ~</option>
+                <select id="select" style="padding-right: 7px; height: 30px;">
+                    <option disabled selected hidden value  >~ Choose a language ~</option>
                     <option value="">English</option>
                     <option value="">French</option>
                     <option value="">Arabic</option>
                 </select>
+                <span id="slc"></span>
             </div>
 
             <div id="radio">
                 <p style="color: white;">Type:</p>
                 <div>
                 <h4>Novel</h4>
-                <input type="radio">
+                <input class="radio" type="radio">
                 <h4>Essay</h4>
-                <input type="radio">
+                <input class="radio" type="radio">
                 <h4>Comics</h4>
-                <input type="radio">
+                <input class="radio" type="radio">
                 </div>
+                <span id="rdo">fgf</span>
             </div>
             <input type="button" value="Submit" onclick="clic()" id="btn">
         </form>
+
+
+
+
+
     <div id="table">
         <table>
             <tr id="titles">
@@ -79,7 +86,7 @@
                 <label>Type<td id="radio-output"></td></label> -->
         </table>
     </div>
-    </main>
+    
     <script>
         //book name
             var title = document.getElementById('Title-input');
@@ -93,8 +100,14 @@
         //date
             var date = document.getElementById('Date-input');
             var dt = document.getElementById('Date-check');
-        //
-            
+        //Language
+            var select =document.getElementById('select')
+            var slc =document.getElementById('slc')
+        //check
+            var radio = document.getElementsByClassName('radio')
+            var rdo = document.getElementById('rdo')
+
+
             function clic(){
             
                 if (title.value == "" || title.value.length>30 || !isNaN(title.value)){
@@ -134,7 +147,25 @@
                     dt.innerHTML =("✔")
                     dt.style.color="green"
                 }
-    
+                
+                if(!(radio[0].checked || radio[1].checked || radio[2].checked)){
+                    rdo.innerHTML =("✘")
+                    rdo.style.color="red"
+                }
+                else {
+                    rdo.innerHTML =("✔")
+                    rdo.style.color="green" 
+                }
+
+                if(select.selectedIndex== "") {
+                    slc.innerHTML =("✘")
+                    slc.style.color="red"
+                }
+                else {
+                    slc.innerHTML =("✔")
+                    slc.style.color="green" 
+                }
+                
     
             }
     
