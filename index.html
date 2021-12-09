@@ -95,7 +95,7 @@
             var writer = document.getElementById('Writer-input');
             var wtr = document.getElementById('Writer-check');
         //Price
-            var price = document.getElementById('Price-input');
+            var writer = document.getElementById('Price-input');
             var prc = document.getElementById('Price-check');
         //date
             var date = document.getElementById('Date-input');
@@ -106,7 +106,14 @@
         //check
             var radio = document.getElementsByClassName('radio')
             var rdo = document.getElementById('rdo')
-
+        //table
+            var table = document.getElementById="table"
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
 
             function clic(){
                 var if_ok = true
@@ -173,8 +180,14 @@
                     slc.style.color="green" 
                 }
             //Table
-                if (if_ok = true){
-
+                if (if_ok){
+                    var row = table.insertRow(-1);
+                    row.insertCell(0).innerHTML = title.value;
+                    row.insertCell(1).innerHTML = writer.value;
+                    row.insertCell(2).innerHTML = price.value;
+                    row.insertCell(3).innerHTML = date.value;
+                    row.insertCell(4).innerHTML = radio.value;
+                    row.insertCell(5).innerHTML = radio.value;
                 }
             }
     
