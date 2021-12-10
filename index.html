@@ -67,7 +67,7 @@
 
 
     <div id="table">
-        <table>
+        <table id="tbl">
             <tr id="titles">
                 <th>Title</th>
                 <th>Writer</th>
@@ -95,7 +95,7 @@
             var writer = document.getElementById('Writer-input');
             var wtr = document.getElementById('Writer-check');
         //Price
-            var writer = document.getElementById('Price-input');
+            var price = document.getElementById('Price-input');
             var prc = document.getElementById('Price-check');
         //date
             var date = document.getElementById('Date-input');
@@ -106,22 +106,14 @@
         //check
             var radio = document.getElementsByClassName('radio')
             var rdo = document.getElementById('rdo')
-        //table
-            var table = document.getElementById="table"
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-            var cell5 = row.insertCell(4);
-            var cell6 = row.insertCell(5);
+
 
             function clic(){
-                var if_ok = true
-            
+                var ok = true
                 if (title.value == "" || title.value.length>30 || !isNaN(title.value)){
                     ttl.innerHTML =("✘")
                     ttl.style.color="red"
-                    if_ok = false
+                    ok=false
                 }
                 else {
                     ttl.innerHTML =("✔")
@@ -131,7 +123,7 @@
                 if (writer.value == ""){
                     wtr.innerHTML =("✘")
                     wtr.style.color="red"
-                    if_ok = false
+                    ok=false
                 }
     
                 else {
@@ -142,7 +134,7 @@
                 if (price.value == "" || isNaN(price.value)){
                     prc.innerHTML =("✘")
                     prc.style.color="red"
-                    if_ok = false
+                    ok=false
     
                 }
                 else {
@@ -153,7 +145,7 @@
                 if (date.value == ""){
                     dt.innerHTML =("✘")
                     dt.style.color="red"
-                    if_ok = false
+                    ok=false
                 }
                 else {
                     dt.innerHTML =("✔")
@@ -163,7 +155,7 @@
                 if(!(radio[0].checked || radio[1].checked || radio[2].checked)){
                     rdo.innerHTML =("✘")
                     rdo.style.color="red"
-                    if_ok = false
+                    ok=false
                 }
                 else {
                     rdo.innerHTML =("✔")
@@ -173,22 +165,30 @@
                 if(select.selectedIndex== "") {
                     slc.innerHTML =("✘")
                     slc.style.color="red"
-                    if_ok = false
+                    ok=false
                 }
                 else {
                     slc.innerHTML =("✔")
                     slc.style.color="green" 
                 }
-            //Table
-                if (if_ok){
+                
+                if(ok){
+                    var table = document.getElementById("tbl");
                     var row = table.insertRow(-1);
-                    row.insertCell(0).innerHTML = title.value;
-                    row.insertCell(1).innerHTML = writer.value;
-                    row.insertCell(2).innerHTML = price.value;
-                    row.insertCell(3).innerHTML = date.value;
-                    row.insertCell(4).innerHTML = radio.value;
-                    row.insertCell(5).innerHTML = radio.value;
+                    var myTitle = row.insertCell(0);
+                    var myWriter = row.insertCell(1);
+                    var myPrice = row.insertCell(2);
+                    var myDate = row.insertCell(3);
+                    var myLanguage = row.insertCell(4);
+                    var myType = row.insertCell(5);
+                    myTitle.innerHTML = title.value;
+                    myWriter.innerHTML = writer.value;
+                    myPrice.innerHTML = price.value;
+                    myDate.innerHTML = date.value;
+                    myLanguage.innerHTML = "NEW CELL2";
+                    myType.innerHTML = "NEW CELL2";
                 }
+    
             }
     
           
