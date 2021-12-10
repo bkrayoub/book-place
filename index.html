@@ -75,6 +75,7 @@
                 <th>Date</th>
                 <th>Language</th>
                 <th>Type</th>
+                <th>Controle</th>
             </tr>
             
 
@@ -183,6 +184,8 @@
                     var myDate = row.insertCell(3);
                     var myLanguage = row.insertCell(4);
                     var myType = row.insertCell(5);
+                    row.insertCell(6).innerHTML = " <input type='button' value='edit' onclick='edt(this)' class='edit'>" + 
+                                                  " <input type='button' value='delete' onclick='dlt(this)' class='delete'>";
 
 
                     myTitle.innerHTML = title.value;
