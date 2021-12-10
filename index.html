@@ -40,9 +40,9 @@
                 <h4>Language</h4>
                 <select id="select" style="padding-right: 7px; height: 30px;">
                     <option disabled selected hidden value  >~ Choose a language ~</option>
-                    <option value="">English</option>
-                    <option value="">French</option>
-                    <option value="">Arabic</option>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                    <option value="Arabic">Arabic</option>
                 </select>
                 <span id="slc"></span>
             </div>
@@ -51,11 +51,11 @@
                 <p style="color: white;">Type:</p>
                 <div>
                 <h4>Novel</h4>
-                <input class="radio" type="radio">
+                <input class="radio" type="radio" name="myRadio" value="Novel">
                 <h4>Essay</h4>
-                <input class="radio" type="radio">
+                <input class="radio" type="radio" name="myRadio" value="Essay">
                 <h4>Comics</h4>
-                <input class="radio" type="radio">
+                <input class="radio" type="radio" name="myRadio" value="Comics">
                 </div>
                 <span id="rdo"></span>
             </div>
@@ -151,16 +151,6 @@
                     dt.innerHTML =("✔")
                     dt.style.color="green"
                 }
-                
-                if(!(radio[0].checked || radio[1].checked || radio[2].checked)){
-                    rdo.innerHTML =("✘")
-                    rdo.style.color="red"
-                    ok=false
-                }
-                else {
-                    rdo.innerHTML =("✔")
-                    rdo.style.color="green" 
-                }
 
                 if(select.selectedIndex== "") {
                     slc.innerHTML =("✘")
@@ -171,6 +161,18 @@
                     slc.innerHTML =("✔")
                     slc.style.color="green" 
                 }
+
+                if(!(radio[0].checked || radio[1].checked || radio[2].checked)){
+                    rdo.innerHTML =("✘")
+                    rdo.style.color="red"
+                    ok=false
+                }
+                else {
+                    rdo.innerHTML =("✔")
+                    rdo.style.color="green" 
+                }
+
+
                 
                 if(ok){
                     var table = document.getElementById("tbl");
@@ -181,12 +183,33 @@
                     var myDate = row.insertCell(3);
                     var myLanguage = row.insertCell(4);
                     var myType = row.insertCell(5);
+
+
                     myTitle.innerHTML = title.value;
                     myWriter.innerHTML = writer.value;
                     myPrice.innerHTML = price.value;
                     myDate.innerHTML = date.value;
-                    myLanguage.innerHTML = "NEW CELL2";
-                    myType.innerHTML = "NEW CELL2";
+                    myLanguage.innerHTML = select.options[select.selectedIndex].value;
+
+                    var temp_cell = "";
+                    
+                    for (var i=0; i<radio.length; i++){
+                        if (radio[i].checked){
+                            temp_cell = radio[i].value  
+                        }
+                    }
+                    myType.innerHTML = temp_cell;
+
+
+
+                    title.value = ""
+                    writer.value = ""
+                    price.value = ""
+                    date.value = ""
+                    select.value = ""
+                     for (var i=0; i<radio.length; i++){
+                         radio[i].checked = false
+                     }
                 }
     
             }
