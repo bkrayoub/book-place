@@ -77,8 +77,6 @@
                 <th>Type</th>
                 <th>Controle</th>
             </tr>
-            
-
                 <!-- <label>Title<th id="title-output"></td></label>
                 <label>Writer<td id="writer-output"></td></label>
                 <label>Price<td id="price-output"></td></label>
@@ -108,65 +106,83 @@
             var radio = document.getElementsByClassName('radio')
             var rdo = document.getElementById('rdo')
 
-
+        // Submit button
             function clic(){
                 var ok = true
+        // Title input    
                 if (title.value == "" || title.value.length>30 || !isNaN(title.value)){
                     ttl.innerHTML =("✘")
                     ttl.style.color="red"
                     ok=false
+                    title.style.borderColor="rgb(189, 0, 0)"
+                    title.style.borderWidth="1.5px"
+                    title.style.borderStyle="solid"
                 }
                 else {
                     ttl.innerHTML =("✔")
                     ttl.style.color="green"
                 }
-    
-                if (writer.value == ""){
+        // writer input
+                if (writer.value == "" || writer.value.length>30 || !isNaN(writer.value)){
                     wtr.innerHTML =("✘")
                     wtr.style.color="red"
                     ok=false
+                    writer.style.borderColor="rgb(189, 0, 0)"
+                    writer.style.borderWidth="1.5px"
+                    writer.style.borderStyle="solid"
                 }
     
                 else {
                     wtr.innerHTML =("✔")
                     wtr.style.color="green"
                 }
-    
+        // Price input
                 if (price.value == "" || isNaN(price.value)){
                     prc.innerHTML =("✘")
                     prc.style.color="red"
                     ok=false
-    
+                    price.style.borderColor="rgb(189, 0, 0)"
+                    price.style.borderWidth="1.5px"
+                    price.style.borderStyle="solid"
                 }
                 else {
                     prc.innerHTML =("✔")
                     prc.style.color="green"
                 }
-    
+        // Date input
                 if (date.value == ""){
                     dt.innerHTML =("✘")
                     dt.style.color="red"
                     ok=false
+                    date.style.borderColor="rgb(189, 0, 0)"
+                    date.style.borderWidth="1.5px"
+                    date.style.borderStyle="solid"
                 }
                 else {
                     dt.innerHTML =("✔")
                     dt.style.color="green"
                 }
-
+        // Language input
                 if(select.selectedIndex== "") {
                     slc.innerHTML =("✘")
                     slc.style.color="red"
                     ok=false
+                    select.style.borderColor="rgb(189, 0, 0)"
+                    select.style.borderWidth="1.5px"
+                    select.style.borderStyle="solid"
                 }
                 else {
                     slc.innerHTML =("✔")
                     slc.style.color="green" 
                 }
-
+        // Book type input
                 if(!(radio[0].checked || radio[1].checked || radio[2].checked)){
                     rdo.innerHTML =("✘")
                     rdo.style.color="red"
                     ok=false
+                    radio.style.borderColor="rgb(189, 0, 0)"
+                    radio.style.borderWidth="1.5px"
+                    radio.style.borderStyle="solid"
                 }
                 else {
                     rdo.innerHTML =("✔")
@@ -174,7 +190,7 @@
                 }
 
 
-                
+        // table
                 if(ok){
                     var table = document.getElementById("tbl");
                     var row = table.insertRow(-1);
@@ -184,10 +200,10 @@
                     var myDate = row.insertCell(3);
                     var myLanguage = row.insertCell(4);
                     var myType = row.insertCell(5);
-                    row.insertCell(6).innerHTML = " <input type='button' value='edit' onclick='edt(this)' class='edit'>" + 
-                                                  " <input type='button' value='delete' onclick='dlt(this)' class='delete'>";
+                    row.insertCell(6).innerHTML = " <input type='button' value='edit' onclick='edt(this)' class='edit' id='Edit'>" + 
+                                                  " <input type='button' value='delete' onclick='dlt(this)' class='delete' id='delete'>";
 
-
+        // Td rows
                     myTitle.innerHTML = title.value;
                     myWriter.innerHTML = writer.value;
                     myPrice.innerHTML = price.value;
@@ -201,10 +217,10 @@
                             temp_cell = radio[i].value  
                         }
                     }
+
                     myType.innerHTML = temp_cell;
 
-
-
+        // Reset the values
                     title.value = ""
                     writer.value = ""
                     price.value = ""
@@ -214,10 +230,49 @@
                          radio[i].checked = false
                      }
                 }
-    
+                
             }
-    
-          
+        // Edit row
+            function edt(t) {
+                selectedLine = t.parentElement.parentElement;
+                if (t.value=="edit"){
+                    document.getElementById('Title-input').value = selectedLine.cells[0].innerHTML;
+                    document.getElementById('Writer-input').value = selectedLine.cells[1].innerHTML;
+                    document.getElementById('Price-input').value = selectedLine.cells[2].innerHTML;
+                    document.getElementById('Date-input').value = selectedLine.cells[3].innerHTML;
+                    document.getElementById('select').value = selectedLine.cells[4].innerHTML;
+                    
+                    t.value = "update";
+                    document.getElementById("btn").setAttribute("disabled", "true");
+                }
+                else {
+                    selectedLine.cells[0].innerHTML = document.getElementById('Title-input').value;
+                    selectedLine.cells[1].innerHTML = document.getElementById('Writer-input').value;
+                    selectedLine.cells[2].innerHTML = document.getElementById('Price-input').value;
+                    selectedLine.cells[3].innerHTML = document.getElementById('Date-input').value;
+                    selectedLine.cells[4].innerHTML = document.getElementById('select').value;
+                    t.value = "edit"
+                    document.getElementById("btn").removeAttribute("disabled");
+        // emptying the input
+                title.value = ""
+                writer.value = ""
+                price.value = ""
+                date.value = ""
+                select.value = ""
+                for (var i=0; i<radio.length; i++){
+                    radio[i].checked = false
+                }
+
+                }
+
+            }
+            function dlt(d){
+
+                    if(confirm('realy?')){
+                        row = d.parentElement.parentElement;
+                        document.getElementById("tbl").deleteRow(row.rowIndex);
+                    }
+                }
     
         </script>
 </body>

@@ -43,13 +43,29 @@ form div p {
 #select {
     margin-bottom: 10px;
 }
-#table {
+#tbl {
+    width: 70vw;
 
+}
+#table {
     background-color: rgb(212, 212, 212);
     margin-left: 10px;
 }
+table input {
+    width: 100%;
+    border: 1px solid;
+    color: whitesmoke;
+}
 table, th, td {
     border:1px solid black;
+    background-color: rgb(133, 202, 204);
+}
+#delete {
+    background-color: rgb(180, 0, 36);
+
+}
+#Edit {
+    background-color: rgb(58, 94, 95);
 }
 #titles {
     font-size: 15px;
