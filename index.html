@@ -46,7 +46,7 @@
                 </select>
                 <span id="slc"></span>
             </div>
-
+            <!-- book type -->
             <div id="radio">
                 <p style="color: white;">Type:</p>
                 <div>
@@ -69,13 +69,13 @@
     <div id="table">
         <table id="tbl">
             <tr id="titles">
-                <th>Title</th>
-                <th>Writer</th>
-                <th>Price</th>
-                <th>Date</th>
-                <th>Language</th>
-                <th>Type</th>
-                <th>Controle</th>
+                <th class="ths">Title</th>
+                <th class="ths">Writer</th>
+                <th class="ths">Price</th>
+                <th class="ths">Date</th>
+                <th class="ths">Language</th>
+                <th class="ths">Type</th>
+                <th class="ths">Controle</th>
             </tr>
                 <!-- <label>Title<th id="title-output"></td></label>
                 <label>Writer<td id="writer-output"></td></label>
@@ -241,7 +241,12 @@
                     document.getElementById('Price-input').value = selectedLine.cells[2].innerHTML;
                     document.getElementById('Date-input').value = selectedLine.cells[3].innerHTML;
                     document.getElementById('select').value = selectedLine.cells[4].innerHTML;
-                    
+                    for(j=0;j<radio.length;j++){
+                    if(selectedLine.cells[5].innerHTML==radio[j].value){
+                        radio[j].checked=true;
+                        }
+                     }
+
                     t.value = "update";
                     document.getElementById("btn").setAttribute("disabled", "true");
                 }
@@ -251,6 +256,11 @@
                     selectedLine.cells[2].innerHTML = document.getElementById('Price-input').value;
                     selectedLine.cells[3].innerHTML = document.getElementById('Date-input').value;
                     selectedLine.cells[4].innerHTML = document.getElementById('select').value;
+                    for(j=0;j<radio.length;j++){
+                    if( radio[j].checked=true){
+                        selectedLine.cells[5].innerHTML=radio[j].value
+                        }
+                    }
                     t.value = "edit"
                     document.getElementById("btn").removeAttribute("disabled");
         // emptying the input
